@@ -30,7 +30,7 @@ function preload() {
   geodata4 = loadJSON("data-main/SITZBANK_SITZBANK.json");
 
   // backgroundImg = loadImage("bg.png"); // Foto mit allen Daten
-  backgroundImg = loadImage("original.png"); //original Foto ohne Accident Daten
+  // backgroundImg = loadImage("original.png"); //original Foto ohne Accident Daten
 }
 
 function setup() {
@@ -51,12 +51,13 @@ function setup() {
 }
 
 function draw() {
-  background("#FEE9C1");
-  image(backgroundImg, 0, 0, width, height);
+  // old background("#FEE9C1");
+  background("#EFE2BA");
+  // image(backgroundImg, 0, 0, width, height);
 
-  // drawWater();
-  // drawBuildings();
-  // drawRoads();
+  drawWater();
+  drawBuildings();
+  drawRoads();
   drawAccident();
   // drawBank();
   drawText();
@@ -98,7 +99,8 @@ function drawBuildings() {
 
     // stroke(0);
     noStroke();
-    fill("#CFA969");
+    //old fill("#CFA969");
+    fill("#d79922");
     beginShape();
 
     for (let j = 0; j < coordinates2.length; j++) {
@@ -120,49 +122,56 @@ function drawRoads() {
     let roadsCoordinates = geodata1.features[j].geometry.coordinates;
     let properties = geodata1.features[j].properties;
 
-    if (properties.highway == "residential") {
-      stroke("#7986CA");
-      strokeWeight(0.5);
-    } else if (properties.highway == "motorway") {
-      noFill();
-      stroke("#71332F");
+    // if (properties.highway == "residential") {
+    //   stroke("#7986CA");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "motorway") {
+    //   noFill();
+    //   stroke("#71332F");
+    //   strokeWeight(3);
+    // } else if (properties.highway == "motorway_link") {
+    //   noFill();
+    //   stroke("#94524d");
+    //   strokeWeight(1.5);
+    // } else if (properties.highway == "primary") {
+    //   stroke("#CC3F31");
+    //   strokeWeight(1);
+    // } else if (properties.highway == "secondary") {
+    //   stroke("#74b9ff");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "service") {
+    //   stroke("#C8B4E1");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "track") {
+    //   stroke("#27ae60");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "path") {
+    //   stroke("#27ae60");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "steps") {
+    //   stroke("#c0392b");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "cycleway") {
+    //   stroke("#636e72");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "pedestrian") {
+    //   stroke("#6D214F");
+    //   strokeWeight(0.5);
+    // } else if (properties.highway == "footway") {
+    //   stroke("#2C3A47");
+    //   strokeWeight(0.5);
+    // } else {
+    //   stroke("#CAD3C8");
+    //   strokeWeight(0.3);
+    // }
+
+    if (properties.highway == "motorway") {
       strokeWeight(3);
-    } else if (properties.highway == "motorway_link") {
-      noFill();
-      stroke("#94524d");
-      strokeWeight(1.5);
-    } else if (properties.highway == "primary") {
-      stroke("#CC3F31");
-      strokeWeight(1);
-    } else if (properties.highway == "secondary") {
-      stroke("#74b9ff");
-      strokeWeight(0.5);
-    } else if (properties.highway == "service") {
-      stroke("#C8B4E1");
-      strokeWeight(0.5);
-    } else if (properties.highway == "track") {
-      stroke("#27ae60");
-      strokeWeight(0.5);
-    } else if (properties.highway == "path") {
-      stroke("#27ae60");
-      strokeWeight(0.5);
-    } else if (properties.highway == "steps") {
-      stroke("#c0392b");
-      strokeWeight(0.5);
-    } else if (properties.highway == "cycleway") {
-      stroke("#636e72");
-      strokeWeight(0.5);
-    } else if (properties.highway == "pedestrian") {
-      stroke("#6D214F");
-      strokeWeight(0.5);
-    } else if (properties.highway == "footway") {
-      stroke("#2C3A47");
-      strokeWeight(0.5);
     } else {
-      stroke("#CAD3C8");
-      strokeWeight(0.3);
+      strokeWeight(1);
     }
 
+    stroke("#24305e");
     noFill();
     // fill('rgba(255, 213, 0, 0.1)');
     // noStroke();
@@ -204,16 +213,19 @@ function drawAccident() {
     // }
 
     // console.log(accidentCoordinates)
-    fill(104, 66, 239); //violett
+    // fill(104, 66, 239); //violett
+    fill("#f13c20");
     // fill("#E8464E"); //rot
-    noStroke();
+    strokeWeight(0.6);
+    stroke(255);
+    // noStroke();
     // for (let j = 0; j < accidentCoordinates.length; j++) {
     //   let accidentCoord = accidentCoordinates[j];
 
     let x = map(accidentCoordinates[0], bounds.left, bounds.right, 0, width);
     let y = map(accidentCoordinates[1], bounds.top, bounds.bottom, 0, height);
     // let r = random(0, 10);
-    let r = 3.5;
+    let r = 4;
 
     //ändern des Design der Tastenkombi
     if (properties.AccidentWeekDay_de == filter) {
