@@ -288,7 +288,7 @@ function drawText() {
       "5 für Freitag" +
       "\n" +
       "\n" +
-      "6 für Samstag" +
+      "Taste 6 für Samstag" +
       "\n" +
       "\n" +
       "Taste 7 für Sonntag",
