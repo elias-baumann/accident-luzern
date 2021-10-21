@@ -30,7 +30,7 @@ function preload() {
   geodata4 = loadJSON("data-main/SITZBANK_SITZBANK.json");
 
   // backgroundImg = loadImage("bg.png"); // Foto mit allen Daten
-  // backgroundImg = loadImage("original.png"); //original Foto ohne Accident Daten
+  backgroundImg = loadImage("original2.0.png"); //original Foto ohne Accident Daten
 }
 
 function setup() {
@@ -52,12 +52,12 @@ function setup() {
 
 function draw() {
   // old background("#FEE9C1");
-  background("#EFE2BA");
-  // image(backgroundImg, 0, 0, width, height);
+  // background("#EFE2BA");
+  image(backgroundImg, 0, 0, width, height);
 
-  drawWater();
-  drawBuildings();
-  drawRoads();
+  // drawWater();
+  // drawBuildings();
+  // drawRoads();
   drawAccident();
   // drawBank();
   drawText();
@@ -214,8 +214,7 @@ function drawAccident() {
 
     // console.log(accidentCoordinates)
     // fill(104, 66, 239); //violett
-    fill("#f13c20");
-    // fill("#E8464E"); //rot
+    fill("#f13c20"); //rot
     strokeWeight(0.6);
     stroke(255);
     // noStroke();
@@ -225,7 +224,7 @@ function drawAccident() {
     let x = map(accidentCoordinates[0], bounds.left, bounds.right, 0, width);
     let y = map(accidentCoordinates[1], bounds.top, bounds.bottom, 0, height);
     // let r = random(0, 10);
-    let r = 4;
+    let r = 5;
 
     //ändern des Design der Tastenkombi
     if (properties.AccidentWeekDay_de == filter) {
