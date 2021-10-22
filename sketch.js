@@ -30,7 +30,7 @@ function preload() {
   geodata4 = loadJSON("data-main/SITZBANK_SITZBANK.json");
 
   // backgroundImg = loadImage("bg.png"); // Foto mit allen Daten
-  backgroundImg = loadImage("original2.0.png"); //original Foto ohne Accident Daten
+  // backgroundImg = loadImage("original2.0.png"); //original Foto ohne Accident Daten
 }
 
 function setup() {
@@ -52,15 +52,15 @@ function setup() {
 
 function draw() {
   // old background("#FEE9C1");
-  // background("#EFE2BA");
-  image(backgroundImg, 0, 0, width, height);
+  background("#EFE2BA");
+  // image(backgroundImg, 0, 0, width, height);
 
-  // drawWater();
-  // drawBuildings();
-  // drawRoads();
+  drawWater();
+  drawBuildings();
+  drawRoads();
   drawAccident();
   // drawBank();
-  drawText();
+  // drawText();
 }
 
 //water
@@ -167,11 +167,13 @@ function drawRoads() {
 
     if (properties.highway == "motorway") {
       strokeWeight(3);
+    } else if (properties.highway == "primary") {
+      stroke("#5FBF05");
     } else {
       strokeWeight(1);
+      stroke("#24305e");
     }
 
-    stroke("#24305e");
     noFill();
     // fill('rgba(255, 213, 0, 0.1)');
     // noStroke();
@@ -224,16 +226,25 @@ function drawAccident() {
     let x = map(accidentCoordinates[0], bounds.left, bounds.right, 0, width);
     let y = map(accidentCoordinates[1], bounds.top, bounds.bottom, 0, height);
     // let r = random(0, 10);
-    let r = 5;
+    let r = 3;
 
     //ändern des Design der Tastenkombi
-    if (properties.AccidentWeekDay_de == filter) {
-      ellipse(x, y, r);
-    }
-
-    // if (properties.AccidentWeekDay_de == "Sonntag") {
+    // if (properties.AccidentWeekDay_de == filter) {
     //   ellipse(x, y, r);
     // }
+
+    if (properties.RoadType_de == "Autobahn") {
+      fill("red");
+      ellipse(x, y, r);
+    } else if (properties.AccidentHour <= "10") {
+      // noFill();
+      // noStroke();
+      fill("green");
+      stroke("white");
+      ellipse(x, y, r);
+    }
+    // else if (properties.RoadType_de == "Hauptstrasse") {
+    //   ellipse(x, y, r);
     // }
   }
 }
