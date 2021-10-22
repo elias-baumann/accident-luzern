@@ -1,4 +1,4 @@
-Accidents in Lucerne. 
+These are all accidents in Lucerne. 
 
 Data from: 
 https://data.geo.admin.ch/ch.astra.unfaelle-personenschaeden_alle/
