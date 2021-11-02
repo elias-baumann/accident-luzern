@@ -5,7 +5,7 @@ let geodata3 = []; //accident
 let geodata4 = []; //bank
 
 let currentYear;
-let record = true;
+let record = false;
 
 let backgroundImg;
 
@@ -85,7 +85,7 @@ function draw() {
   drawText();
 
   if (currentYear < 2021) {
-    currentYear += 0.25;
+    currentYear += 1;
   }
 
   if (record) {
@@ -198,7 +198,7 @@ function drawAccidentAnimation() {
     let accidentObject = accidentData[i];
     console.log(accidentObject);
 
-    if (accidentObject.properties.AccidentYear < currentYear) {
+    if (accidentObject.properties.AccidentYear == currentYear) {
       let coordinates = accidentObject.geometry.coordinates;
       let lat = coordinates[1];
       let lon = coordinates[0];
