@@ -30,7 +30,7 @@ function preload() {
   geodata4 = loadJSON("data-main/SITZBANK_SITZBANK.json");
 
   // backgroundImg = loadImage("bg.png"); // Foto mit allen Daten
-  backgroundImg = loadImage("original2.0.png"); //original Foto ohne Accident Daten
+  // backgroundImg = loadImage("original2.0.png"); //original Foto ohne Accident Daten
 }
 
 function setup() {
@@ -52,12 +52,12 @@ function setup() {
 
 function draw() {
   // old background("#FEE9C1");
-  // background("#EFE2BA");
-  image(backgroundImg, 0, 0, width, height);
+  background("#EFE2BA");
+  // image(backgroundImg, 0, 0, width, height);
 
   // drawWater();
   // drawBuildings();
-  // drawRoads();
+  drawRoads();
   drawAccident();
   // drawBank();
   drawText();
@@ -165,13 +165,89 @@ function drawRoads() {
     //   strokeWeight(0.3);
     // }
 
-    if (properties.highway == "motorway") {
+    if (properties.name == "Schweizerhofquai") {
+      strokeWeight(9);
+      stroke("#00ECC2");
+    } else if (properties.name == "Pilatusstrasse") {
       strokeWeight(3);
+      stroke("#0078FF");
+    } else if (properties.name == "Seebrücke") {
+      strokeWeight(4);
+      stroke("#a29bfe");
+    } else if (properties.name == "Pilatusstrasse") {
+      strokeWeight(3);
+      stroke("#0078FF");
+    } else if (properties.name == "Bahnhofplatz") {
+      strokeWeight(9);
+      stroke("#00cec9");
+    } else if (properties.name == "Zürichstrasse") {
+      strokeWeight(7);
+      stroke("#fd79a8");
+    } else if (properties.name == "Obergrundstrasse") {
+      strokeWeight(8);
+      stroke("#f53b57");
+    } else if (properties.name == "Luzernerstrasse") {
+      strokeWeight(7);
+      stroke("#0fbcf9");
+    } else if (properties.name == "Obernauerstrasse") {
+      strokeWeight(7);
+      stroke("#4bcffa");
+    } else if (properties.name == "Baselstrasse") {
+      strokeWeight(7);
+      stroke("#3c40c6");
+    } else if (properties.name == "Gütschstrasse") {
+      strokeWeight(5);
+      stroke("#575fcf");
+    } else if (properties.name == "Zentralstrasse") {
+      strokeWeight(7);
+      stroke("#485460");
+    } else if (properties.name == "Bundesplatz") {
+      strokeWeight(7);
+      stroke("#808e9b");
+    } else if (properties.name == "Tribschenstrasse") {
+      strokeWeight(5);
+      stroke("#0be881");
+    } else if (properties.name == "Geissmattstrasse") {
+      strokeWeight(5);
+      stroke("#575fcf");
+    } else if (properties.name == "Maihofstrasse") {
+      strokeWeight(6);
+      stroke("#b8e994");
+    } else if (properties.name == "Friedentalstrasse") {
+      strokeWeight(5);
+      stroke("#4a69bd");
+    } else if (properties.name == "Spitalstrasse") {
+      strokeWeight(4);
+      stroke("#60a3bc");
+    } else if (properties.highway == "motorway") {
+      strokeWeight(9);
+      stroke("#eb2f06");
+    } else if (properties.name == "Hauptstrasse") {
+      strokeWeight(5);
+      stroke("#575fcf");
+    } else if (
+      properties.name == "Neuenkirchstrasse" ||
+      properties.name == "Gerliswilstrasse"
+    ) {
+      strokeWeight(5);
+      stroke("#0fbcf9");
+    } else if (properties.name == "Rothenburgstrasse") {
+      strokeWeight(4);
+      stroke("#34e7e4");
+    } else if (properties.name == "Haldenstrasse") {
+      strokeWeight(4);
+      stroke("#3c6382");
+    } else if (properties.name == "Spitalstrasse") {
+      strokeWeight(4);
+      stroke("#60a3bc");
+    } else if (properties.name == "Spitalstrasse") {
+      strokeWeight(4);
+      stroke("#60a3bc");
     } else {
       strokeWeight(1);
+      stroke("#053F5C");
     }
 
-    stroke("#24305e");
     noFill();
     // fill('rgba(255, 213, 0, 0.1)');
     // noStroke();
