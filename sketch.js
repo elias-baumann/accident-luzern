@@ -52,12 +52,14 @@ function draw() {
   // background("#DFD8D0"); //v4
   // background("#AEAEB0"); //v5
   // background("#255F85"); //v6
-  background("#02314D"); //v7
+  // background("#02314D"); //v7
+  // background("#EEF0F2"); //v8
+  background("#EEC643"); //v9
 
   // image(backgroundImg, 0, 0, width, height);
 
   drawWater();
-  // drawBuildings();
+  drawBuildings();
   drawRoads();
   drawAccident();
   // drawBank();
@@ -75,7 +77,8 @@ function drawWater() {
     stroke(1);
     // fill("#CACFD6"); //v1
     // fill("#7BAD8E"); //v2
-    fill("#C2C7BE"); //v3
+    // fill("#C2C7BE"); //v3
+    fill("#A0CED9"); //v3
     beginShape();
 
     for (let l = 0; l < coordinates2.length; l++) {
@@ -108,7 +111,9 @@ function drawBuildings() {
     // fill("#A48C88"); //v4
     // fill("#D8EBF1"); //v5
     // fill("#FFC857"); //v6
-    fill("#CBCACF"); //v7
+    // fill("#CBCACF"); //v7
+    // fill("#011638"); //v8
+    fill("#EEF0F2"); //v9
 
     beginShape();
 
@@ -142,7 +147,9 @@ function drawRoads() {
     // stroke("#6A5D54"); //v4
     // stroke("#807875"); //v5
     // stroke("#FFC857"); //v6
-    stroke("#CBCACF"); //v7
+    // stroke("#CBCACF"); //v7
+    // stroke("#0D21A1"); //v8
+    stroke("#EEF0F2"); //v9
     noFill();
     // fill('rgba(255, 213, 0, 0.1)');
     // noStroke();
@@ -171,9 +178,10 @@ function drawAccident() {
     // fill("#C1454D"); //v2
     // fill("#F0CA52"); //v3
     // fill("#E50914"); //v4
-    fill("#FFBB1C"); //v7
-    strokeWeight(0.6);
-    stroke(255);
+    // fill("#FFBB1C"); //v7
+    fill("#0D21A1"); //v8
+    strokeWeight(0.8);
+    stroke(250);
 
     let x = map(accidentCoordinates[0], bounds.left, bounds.right, 0, width);
     let y = map(accidentCoordinates[1], bounds.top, bounds.bottom, 0, height);
