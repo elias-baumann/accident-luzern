@@ -60,7 +60,7 @@ function draw() {
   drawRoads();
   drawAccident();
   // drawBank();
-  drawText();
+  // drawText();
 }
 
 //water
@@ -122,49 +122,6 @@ function drawRoads() {
     let roadsCoordinates = geodata1.features[j].geometry.coordinates;
     let properties = geodata1.features[j].properties;
 
-    // if (properties.highway == "residential") {
-    //   stroke("#7986CA");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "motorway") {
-    //   noFill();
-    //   stroke("#71332F");
-    //   strokeWeight(3);
-    // } else if (properties.highway == "motorway_link") {
-    //   noFill();
-    //   stroke("#94524d");
-    //   strokeWeight(1.5);
-    // } else if (properties.highway == "primary") {
-    //   stroke("#CC3F31");
-    //   strokeWeight(1);
-    // } else if (properties.highway == "secondary") {
-    //   stroke("#74b9ff");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "service") {
-    //   stroke("#C8B4E1");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "track") {
-    //   stroke("#27ae60");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "path") {
-    //   stroke("#27ae60");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "steps") {
-    //   stroke("#c0392b");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "cycleway") {
-    //   stroke("#636e72");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "pedestrian") {
-    //   stroke("#6D214F");
-    //   strokeWeight(0.5);
-    // } else if (properties.highway == "footway") {
-    //   stroke("#2C3A47");
-    //   strokeWeight(0.5);
-    // } else {
-    //   stroke("#CAD3C8");
-    //   strokeWeight(0.3);
-    // }
-
     if (properties.name == "Schweizerhofquai") {
       strokeWeight(9);
       stroke("#00ECC2");
@@ -184,7 +141,7 @@ function drawRoads() {
       strokeWeight(7);
       stroke("#fd79a8");
     } else if (properties.name == "Obergrundstrasse") {
-      strokeWeight(8);
+      strokeWeight(10);
       stroke("#f53b57");
     } else if (properties.name == "Luzernerstrasse") {
       strokeWeight(7);
@@ -220,7 +177,7 @@ function drawRoads() {
       strokeWeight(4);
       stroke("#60a3bc");
     } else if (properties.highway == "motorway") {
-      strokeWeight(9);
+      strokeWeight(7);
       stroke("#eb2f06");
     } else if (properties.name == "Hauptstrasse") {
       strokeWeight(5);
@@ -290,9 +247,10 @@ function drawAccident() {
 
     // console.log(accidentCoordinates)
     // fill(104, 66, 239); //violett
-    fill("#f13c20"); //rot
+    // fill("#f13c20"); //rot
+    noFill();
     strokeWeight(0.6);
-    stroke(255);
+    stroke(255, 100);
     // noStroke();
     // for (let j = 0; j < accidentCoordinates.length; j++) {
     //   let accidentCoord = accidentCoordinates[j];
@@ -303,9 +261,10 @@ function drawAccident() {
     let r = 5;
 
     //ändern des Design der Tastenkombi
-    if (properties.AccidentWeekDay_de == filter) {
-      ellipse(x, y, r);
-    }
+    // if (properties.AccidentWeekDay_de == filter) {
+    //   ellipse(x, y, r);
+    // }
+    ellipse(x, y, r);
 
     // if (properties.AccidentWeekDay_de == "Sonntag") {
     //   ellipse(x, y, r);
