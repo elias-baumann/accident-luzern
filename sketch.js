@@ -54,7 +54,7 @@ function draw() {
   // background("#255F85"); //v6
   // background("#02314D"); //v7
   // background("#EEF0F2"); //v8
-  background("#EEC643"); //v9
+  background("#EEF0F2"); //v9
 
   // image(backgroundImg, 0, 0, width, height);
 
@@ -74,11 +74,12 @@ function drawWater() {
     let coordinates = geometry.coordinates[0];
     let coordinates2 = coordinates[0];
 
-    stroke(1);
+    noStroke();
+    // stroke(1);
     // fill("#CACFD6"); //v1
     // fill("#7BAD8E"); //v2
     // fill("#C2C7BE"); //v3
-    fill("#A0CED9"); //v3
+    fill("#EEF0F2"); //v3
     beginShape();
 
     for (let l = 0; l < coordinates2.length; l++) {
@@ -113,7 +114,7 @@ function drawBuildings() {
     // fill("#FFC857"); //v6
     // fill("#CBCACF"); //v7
     // fill("#011638"); //v8
-    fill("#EEF0F2"); //v9
+    fill("#4E5CA0"); //v9
 
     beginShape();
 
@@ -149,7 +150,7 @@ function drawRoads() {
     // stroke("#FFC857"); //v6
     // stroke("#CBCACF"); //v7
     // stroke("#0D21A1"); //v8
-    stroke("#EEF0F2"); //v9
+    stroke("#4E5CA0"); //v9
     noFill();
     // fill('rgba(255, 213, 0, 0.1)');
     // noStroke();
@@ -179,19 +180,20 @@ function drawAccident() {
     // fill("#F0CA52"); //v3
     // fill("#E50914"); //v4
     // fill("#FFBB1C"); //v7
-    fill("#0D21A1"); //v8
-    strokeWeight(0.8);
+    fill("#C1272D"); //v8
+    strokeWeight(0.5);
     stroke(250);
 
     let x = map(accidentCoordinates[0], bounds.left, bounds.right, 0, width);
     let y = map(accidentCoordinates[1], bounds.top, bounds.bottom, 0, height);
     // let r = random(0, 10);
-    let r = 6;
+    let r = 5;
+    ellipse(x, y, r);
 
     //ändern des Design der Tastenkombi
-    if (properties.AccidentWeekDay_de == filter) {
-      ellipse(x, y, r);
-    }
+    // if (properties.AccidentWeekDay_de == filter) {
+    //   ellipse(x, y, r);
+    // }
   }
 }
 
@@ -260,21 +262,21 @@ function keyTyped() {
   // console.log("saving...");
   // saveCanvas("p5map", "png");
 
-  if (key == "1") {
-    filter = "Montag";
-  } else if (key == "2") {
-    filter = "Dienstag";
-  } else if (key == "3") {
-    filter = "Mittwoch";
-  } else if (key == "4") {
-    filter = "Donnerstag";
-  } else if (key == "5") {
-    filter = "Freitag";
-  } else if (key == "6") {
-    filter = "Samstag";
-  } else if (key == "7") {
-    filter = "Sonntag";
-  }
+  // if (key == "1") {
+  //   filter = "Montag";
+  // } else if (key == "2") {
+  //   filter = "Dienstag";
+  // } else if (key == "3") {
+  //   filter = "Mittwoch";
+  // } else if (key == "4") {
+  //   filter = "Donnerstag";
+  // } else if (key == "5") {
+  //   filter = "Freitag";
+  // } else if (key == "6") {
+  //   filter = "Samstag";
+  // } else if (key == "7") {
+  //   filter = "Sonntag";
+  // }
 
   if (key == "d") {
     saveCanvas("accidentMap", "png");
