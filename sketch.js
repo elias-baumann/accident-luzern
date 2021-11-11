@@ -52,7 +52,7 @@ function setup() {
 
 function draw() {
   // old background("#FEE9C1");
-  background("#141414");
+  background("#EEF0F2");
   // image(backgroundImg, 0, 0, width, height);
 
   // drawWater();
@@ -123,7 +123,7 @@ function drawRoads() {
     let properties = geodata1.features[j].properties;
 
     if (properties.name == "Schweizerhofquai") {
-      strokeWeight(10);
+      strokeWeight(17);
     } else if (properties.name == "Geissmattstrasse") {
       strokeWeight(5);
     } else if (properties.name == "Maihofstrasse") {
@@ -227,17 +227,17 @@ function drawRoads() {
     } else if (properties.name == "Stationsstrasse") {
       strokeWeight(4);
     } else if (properties.name == "Pilatusstrasse") {
-      strokeWeight(4);
+      strokeWeight(15);
     } else if (properties.name == "Seebrücke") {
       strokeWeight(5);
     } else if (properties.name == "Bahnhofplatz") {
-      strokeWeight(10);
+      strokeWeight(15);
     } else if (properties.name == "Zürichstrasse") {
-      strokeWeight(7);
+      strokeWeight(15);
     } else if (properties.name == "Obergrundstrasse") {
-      strokeWeight(10);
+      strokeWeight(19);
     } else if (properties.name == "Luzernerstrasse") {
-      strokeWeight(7);
+      strokeWeight(10);
     } else if (
       properties.name == "Obernauerstrasse" ||
       properties.name == "Rengglochstrasse"
@@ -253,9 +253,11 @@ function drawRoads() {
       strokeWeight(7);
     } else if (properties.name == "Tribschenstrasse") {
       strokeWeight(5);
-    } else if (properties.name == "Stationsstrasse") {
+      // } else if (properties.highway == "motorway") {
+      //   strokeWeight(7);
+      // } else if (properties.name == "Stationsstrasse") {
       strokeWeight(4);
-      // } else (
+    } else {
       //   properties.name == "Waldweg" ||
       //   properties.name == "Waldrandweg" ||
       //   properties.name == "Hirtenhofring" ||
@@ -276,24 +278,24 @@ function drawRoads() {
       noStroke();
     }
 
-    if (properties.highway == "residential") {
-      stroke("#7B68EE");
-    } else if (properties.highway == "primary") {
-      stroke("#800080");
-    } else if (
+    if (
       properties.highway == "motorway" ||
       properties.highway == "motorway_link"
     ) {
-      strokeWeight(7);
-      stroke("#BA55D3");
+      stroke("#FCC731");
+    } else if (properties.highway == "residential") {
+      //30er zone
+      stroke("#001BA5");
     } else if (properties.highway == "secondary") {
-      stroke("#191970");
+      stroke("#001036");
     } else if (properties.highway == "tertiary") {
-      stroke("#9370DB");
+      stroke("#00B770");
+    } else if (properties.highway == "primary") {
+      stroke("#E12229");
     } else {
-      strokeWeight(0.5);
-      // noStroke();
-      stroke("#9370DB");
+      strokeWeight(0.1);
+      // // noStroke();
+      stroke("#4E5CA0");
     }
 
     noFill();
