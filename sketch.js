@@ -29,7 +29,7 @@ function preload() {
 
 function setup() {
   pixelDensity(3);
-  createCanvas(1260, 910);
+  createCanvas(1260, 910, SVG);
   // createCanvas(2700, 1950);
   // createCanvas(4050, 2925);
 
@@ -45,6 +45,8 @@ function setup() {
 }
 
 function draw() {
+  clear();
+
   // old background("#FEE9C1");
   // background("#0B4F6C"); //v1
   // background("#f4f7c9"); //v2
@@ -54,13 +56,13 @@ function draw() {
   // background("#255F85"); //v6
   // background("#02314D"); //v7
   // background("#EEF0F2"); //v8
-  background("#EEF0F2"); //v9
+  // background("#EEF0F2"); //v9
 
   // image(backgroundImg, 0, 0, width, height);
 
-  drawWater();
-  drawBuildings();
-  drawRoads();
+  // drawWater();
+  // drawBuildings();
+  // drawRoads();
   drawAccident();
   // drawBank();
   // drawText();
@@ -180,9 +182,10 @@ function drawAccident() {
     // fill("#F0CA52"); //v3
     // fill("#E50914"); //v4
     // fill("#FFBB1C"); //v7
-    fill("#C1272D"); //v8
+    // fill("#C1272D"); //v8
+    noFill();
     strokeWeight(0.5);
-    stroke(250);
+    stroke(252, 34, 41, 150);
 
     let x = map(accidentCoordinates[0], bounds.left, bounds.right, 0, width);
     let y = map(accidentCoordinates[1], bounds.top, bounds.bottom, 0, height);
@@ -279,7 +282,8 @@ function keyTyped() {
   // }
 
   if (key == "d") {
-    saveCanvas("accidentMap", "png");
+    // saveCanvas("accidentMap", "png");
+    save("trees.svg");
   }
 
   redraw();
