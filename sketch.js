@@ -35,24 +35,42 @@ function draw() {
 
 //roads
 function drawRoads() {
-  for (let j = 0; j < geodata1.features.length; j++) {
+  for (let j = 0; j < /*geodata1.features.length*/ 100; j++) {
     let roadsCoordinates = geodata1.features[j].geometry.coordinates;
     let properties = geodata1.features[j].properties;
+
+    if (j % 10 == 0) {
+      console.log("calculation street", j);
+    }
 
     fill("#24305e");
     noStroke();
     // noStroke();
-    beginShape();
+    // beginShape();
     for (let k = 0; k < roadsCoordinates.length; k++) {
       let roadsCoord = roadsCoordinates[k];
 
+      let ptlat = roadsCoord[1];
+      let ptlon = roadsCoord[0];
+
+      let closestAccidents = accidentData.filter(function (d) {
+        let dlat = d.geometry.coordinates[1];
+        let dlon = d.geometry.coordinates[0];
+        let distance = dist(ptlon, ptlat, dlon, dlat);
+        //distanz zu unfall von Strassenpunkt
+        return distance < 0.0005;
+      });
+
       let x = map(roadsCoord[0], bounds.left, bounds.right, 0, width);
       let y = map(roadsCoord[1], bounds.top, bounds.bottom, 0, height);
-      let r = 1;
+      // so viele unfälle wie es hat
+      let r = closestAccidents.length;
       // vertex(x, y);
-      ellipse(x, y, r);
+      // ellipse(x, y, r);
+      line(ptlat, ptlon, x, y);
+      strokeWeight(r);
     }
-    endShape();
+    // endShape();
   }
 }
 
