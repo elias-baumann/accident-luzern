@@ -2,6 +2,8 @@ let geodata1 = []; //roads
 let geodata3 = []; //accident
 
 let backgroundImg;
+let distFact = 0.002;
+let rFact = 0.08;
 
 let bounds = {
   //original
@@ -35,7 +37,7 @@ function draw() {
 
 //roads
 function drawRoads() {
-  for (let j = 0; j < /*geodata1.features.length*/ 700; j++) {
+  for (let j = 0; j < geodata1.features.length /*1800*/; j++) {
     let roadsCoordinates = geodata1.features[j].geometry.coordinates;
     let properties = geodata1.features[j].properties;
 
@@ -60,7 +62,8 @@ function drawRoads() {
         let dlon = d.geometry.coordinates[0];
         let distance = dist(ptlon, ptlat, dlon, dlat);
         //distanz zu unfall von Strassenpunkt
-        return distance < 0.0007;
+        // let distFact = 0.002;
+        return distance < distFact;
       });
 
       let x = map(roadsCoord[0], bounds.left, bounds.right, 0, width);
@@ -70,21 +73,33 @@ function drawRoads() {
       let y2 = map(roadsCoord2[1], bounds.top, bounds.bottom, 0, height);
 
       // so viele unfälle wie es hat
-      let r = closestAccidents.length * 0.25;
+      // let rFact = 0.07;
+      let r = closestAccidents.length * rFact;
       // console.log(r);
 
-      if (r > 15) {
-        r = 15;
+      if (r > 9) {
+        r = 9;
+      } else if (r == 0) {
+        r = 0;
+      } else if (r < 0.1) {
+        r = 0.1;
       }
+
+      // if (properties.highway == "primary") {
+      //   stroke("#EEC643");
+      // } else {
+      //   stroke(0);
+      stroke(0);
 
       // vertex(x, y);
       // ellipse(x, y, r / 2);
       strokeWeight(r);
-      stroke(0);
       line(x, y, x2, y2);
-      if ((properties.highway = "motorway")) {
-        stroke("#E12229");
-      }
+
+      textSize(32);
+      strokeWeight(1);
+      text("" + distFact + ", " + rFact, 60, 60);
+
       // console.log(ptlat, ptlon, x, y);
     }
     // endShape();
