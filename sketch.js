@@ -23,11 +23,11 @@ let bounds = {
 let filter = "Montag";
 
 function preload() {
-  geodata = loadJSON("data-main/lucerne-buildings.geojson");
+  // geodata = loadJSON("data-main/lucerne-buildings.geojson");
   geodata1 = loadJSON("data-main/lucerne-roads.geojson");
-  geodata2 = loadJSON("lucerne-water.geojson");
-  geodata3 = loadJSON("data-main/accidentLU.geojson");
-  geodata4 = loadJSON("data-main/SITZBANK_SITZBANK.json");
+  // geodata2 = loadJSON("lucerne-water.geojson");
+  // geodata3 = loadJSON("data-main/accidentLU.geojson");
+  // geodata4 = loadJSON("data-main/SITZBANK_SITZBANK.json");
 
   // backgroundImg = loadImage("bg.png"); // Foto mit allen Daten
   // backgroundImg = loadImage("original2.0.png"); //original Foto ohne Accident Daten
@@ -122,181 +122,181 @@ function drawRoads() {
     let roadsCoordinates = geodata1.features[j].geometry.coordinates;
     let properties = geodata1.features[j].properties;
 
-    if (properties.name == "Schweizerhofquai") {
-      strokeWeight(17);
-    } else if (properties.name == "Geissmattstrasse") {
-      strokeWeight(5);
-    } else if (properties.name == "Maihofstrasse") {
-      strokeWeight(6);
-    } else if (properties.name == "Friedentalstrasse") {
-      strokeWeight(5);
-    } else if (properties.name == "Spitalstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Hauptstrasse") {
-      strokeWeight(5);
-    } else if (
-      properties.name == "Neuenkirchstrasse" ||
-      properties.name == "Gerliswilstrasse"
-    ) {
-      strokeWeight(5);
-    } else if (properties.name == "Rothenburgstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Haldenstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Sedelstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Reusseggstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Seetalstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Rüeggisingerstrasse") {
-      strokeWeight(5);
-    } else if (
-      properties.name == "Thorenbergstrasse" ||
-      properties.name == "Rothenstrasse"
-    ) {
-      strokeWeight(4);
-    } else if (properties.name == "Bahnhofstrasse") {
-      strokeWeight(7);
-    } else if (properties.name == "Seeburgstrasse") {
-      strokeWeight(4);
-    } else if (
-      properties.name == "Brüelstrasse" ||
-      properties.name == "Schädrütistrasse" ||
-      properties.name == "Kreuzbuchstrasse"
-    ) {
-      strokeWeight(5);
-    } else if (properties.name == "Moosstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Bundesstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Bireggstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Bleicherstrasse") {
-      strokeWeight(4);
-    } else if (
-      properties.name == "Horwerstrasse" ||
-      properties.name == "Kantonsstrasse" ||
-      properties.name == "Zihlmattweg"
-    ) {
-      strokeWeight(4);
-    } else if (properties.name == "Langensandstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Sternmattstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Schachenstrasse") {
-      strokeWeight(4);
-    } else if (
-      properties.name == "Cheerstrasse" ||
-      properties.name == "Kantonsstrasse" ||
-      properties.name == "Zihlmattweg"
-    ) {
-      strokeWeight(4);
-    } else if (
-      properties.name == "Ritterstrasse" ||
-      properties.name == "Flurstrasse" ||
-      properties.name == "Ruopigenstrasse"
-    ) {
-      strokeWeight(4);
-    } else if (properties.name == "Erlenstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Luzernstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Stationsstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Östliche Bergstrasse") {
-      strokeWeight(4);
-    } else if (
-      properties.name == "Gebeneggweg" ||
-      properties.name == "Geissensteinring" ||
-      properties.name == "Fruttstrasse"
-    ) {
-      strokeWeight(4);
-    } else if (
-      properties.name == "Zugerstrasse" ||
-      properties.name == "Zentralstrasse" ||
-      properties.name == "Fruttstrasse"
-    ) {
-      strokeWeight(4);
-    } else if (properties.name == "Adligenswilerstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "St. Annastrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Bellerivehöhe") {
-      strokeWeight(4);
-    } else if (properties.name == "Stationsstrasse") {
-      strokeWeight(4);
-    } else if (properties.name == "Pilatusstrasse") {
-      strokeWeight(15);
-    } else if (properties.name == "Seebrücke") {
-      strokeWeight(5);
-    } else if (properties.name == "Bahnhofplatz") {
-      strokeWeight(15);
-    } else if (properties.name == "Zürichstrasse") {
-      strokeWeight(15);
-    } else if (properties.name == "Obergrundstrasse") {
-      strokeWeight(19);
-    } else if (properties.name == "Luzernerstrasse") {
-      strokeWeight(10);
-    } else if (
-      properties.name == "Obernauerstrasse" ||
-      properties.name == "Rengglochstrasse"
-    ) {
-      strokeWeight(7);
-    } else if (properties.name == "Baselstrasse") {
-      strokeWeight(7);
-    } else if (properties.name == "Gütschstrasse") {
-      strokeWeight(5);
-    } else if (properties.name == "Zentralstrasse") {
-      strokeWeight(7);
-    } else if (properties.name == "Bundesplatz") {
-      strokeWeight(7);
-    } else if (properties.name == "Tribschenstrasse") {
-      strokeWeight(5);
-      // } else if (properties.highway == "motorway") {
-      //   strokeWeight(7);
-      // } else if (properties.name == "Stationsstrasse") {
-      strokeWeight(4);
-    } else {
-      //   properties.name == "Waldweg" ||
-      //   properties.name == "Waldrandweg" ||
-      //   properties.name == "Hirtenhofring" ||
-      //   properties.name == "Hirtenhofstrasse" ||
-      //   properties.name == "Auf Hinterhof" ||
-      //   properties.name == "Hügelweg" ||
-      //   properties.name == "Studhaldenhöhe" ||
-      //   properties.name == "Hirtenhofstrasse" ||
-      //   properties.name == "Waldweg" ||
-      //   properties.name == "Waldrandweg" ||
-      //   properties.name == "Waldweg" ||
-      //   properties.name == "Waldrandweg" ||
-      //   properties.name == "Waldweg" ||
-      //   properties.name == "Waldrandweg" ||
-      //   properties.name == "Waldweg" ||
-      //   properties.name == "Waldrandweg"
-      // ) {
-      noStroke();
-    }
+    // if (properties.name == "Schweizerhofquai") {
+    //   strokeWeight(17);
+    // } else if (properties.name == "Geissmattstrasse") {
+    //   strokeWeight(5);
+    // } else if (properties.name == "Maihofstrasse") {
+    //   strokeWeight(6);
+    // } else if (properties.name == "Friedentalstrasse") {
+    //   strokeWeight(5);
+    // } else if (properties.name == "Spitalstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Hauptstrasse") {
+    //   strokeWeight(5);
+    // } else if (
+    //   properties.name == "Neuenkirchstrasse" ||
+    //   properties.name == "Gerliswilstrasse"
+    // ) {
+    //   strokeWeight(5);
+    // } else if (properties.name == "Rothenburgstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Haldenstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Sedelstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Reusseggstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Seetalstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Rüeggisingerstrasse") {
+    //   strokeWeight(5);
+    // } else if (
+    //   properties.name == "Thorenbergstrasse" ||
+    //   properties.name == "Rothenstrasse"
+    // ) {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Bahnhofstrasse") {
+    //   strokeWeight(7);
+    // } else if (properties.name == "Seeburgstrasse") {
+    //   strokeWeight(4);
+    // } else if (
+    //   properties.name == "Brüelstrasse" ||
+    //   properties.name == "Schädrütistrasse" ||
+    //   properties.name == "Kreuzbuchstrasse"
+    // ) {
+    //   strokeWeight(5);
+    // } else if (properties.name == "Moosstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Bundesstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Bireggstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Bleicherstrasse") {
+    //   strokeWeight(4);
+    // } else if (
+    //   properties.name == "Horwerstrasse" ||
+    //   properties.name == "Kantonsstrasse" ||
+    //   properties.name == "Zihlmattweg"
+    // ) {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Langensandstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Sternmattstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Schachenstrasse") {
+    //   strokeWeight(4);
+    // } else if (
+    //   properties.name == "Cheerstrasse" ||
+    //   properties.name == "Kantonsstrasse" ||
+    //   properties.name == "Zihlmattweg"
+    // ) {
+    //   strokeWeight(4);
+    // } else if (
+    //   properties.name == "Ritterstrasse" ||
+    //   properties.name == "Flurstrasse" ||
+    //   properties.name == "Ruopigenstrasse"
+    // ) {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Erlenstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Luzernstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Stationsstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Östliche Bergstrasse") {
+    //   strokeWeight(4);
+    // } else if (
+    //   properties.name == "Gebeneggweg" ||
+    //   properties.name == "Geissensteinring" ||
+    //   properties.name == "Fruttstrasse"
+    // ) {
+    //   strokeWeight(4);
+    // } else if (
+    //   properties.name == "Zugerstrasse" ||
+    //   properties.name == "Zentralstrasse" ||
+    //   properties.name == "Fruttstrasse"
+    // ) {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Adligenswilerstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "St. Annastrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Bellerivehöhe") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Stationsstrasse") {
+    //   strokeWeight(4);
+    // } else if (properties.name == "Pilatusstrasse") {
+    //   strokeWeight(15);
+    // } else if (properties.name == "Seebrücke") {
+    //   strokeWeight(5);
+    // } else if (properties.name == "Bahnhofplatz") {
+    //   strokeWeight(15);
+    // } else if (properties.name == "Zürichstrasse") {
+    //   strokeWeight(15);
+    // } else if (properties.name == "Obergrundstrasse") {
+    //   strokeWeight(19);
+    // } else if (properties.name == "Luzernerstrasse") {
+    //   strokeWeight(10);
+    // } else if (
+    //   properties.name == "Obernauerstrasse" ||
+    //   properties.name == "Rengglochstrasse"
+    // ) {
+    //   strokeWeight(7);
+    // } else if (properties.name == "Baselstrasse") {
+    //   strokeWeight(7);
+    // } else if (properties.name == "Gütschstrasse") {
+    //   strokeWeight(5);
+    // } else if (properties.name == "Zentralstrasse") {
+    //   strokeWeight(7);
+    // } else if (properties.name == "Bundesplatz") {
+    //   strokeWeight(7);
+    // } else if (properties.name == "Tribschenstrasse") {
+    //   strokeWeight(5);
+    //   // } else if (properties.highway == "motorway") {
+    //   //   strokeWeight(7);
+    //   // } else if (properties.name == "Stationsstrasse") {
+    //   strokeWeight(4);
+    // } else {
+    //   //   properties.name == "Waldweg" ||
+    //   //   properties.name == "Waldrandweg" ||
+    //   //   properties.name == "Hirtenhofring" ||
+    //   //   properties.name == "Hirtenhofstrasse" ||
+    //   //   properties.name == "Auf Hinterhof" ||
+    //   //   properties.name == "Hügelweg" ||
+    //   //   properties.name == "Studhaldenhöhe" ||
+    //   //   properties.name == "Hirtenhofstrasse" ||
+    //   //   properties.name == "Waldweg" ||
+    //   //   properties.name == "Waldrandweg" ||
+    //   //   properties.name == "Waldweg" ||
+    //   //   properties.name == "Waldrandweg" ||
+    //   //   properties.name == "Waldweg" ||
+    //   //   properties.name == "Waldrandweg" ||
+    //   //   properties.name == "Waldweg" ||
+    //   //   properties.name == "Waldrandweg"
+    //   // ) {
+    //   noStroke();
+    // }
 
-    if (
-      properties.highway == "motorway" ||
-      properties.highway == "motorway_link"
-    ) {
-      stroke("#FCC731");
-    } else if (properties.highway == "residential") {
-      //30er zone
-      stroke("#001BA5");
-    } else if (properties.highway == "secondary") {
-      stroke("#001036");
-    } else if (properties.highway == "tertiary") {
-      stroke("#00B770");
-    } else if (properties.highway == "primary") {
-      stroke("#E12229");
-    } else {
-      strokeWeight(0.1);
-      // // noStroke();
-      stroke("#4E5CA0");
-    }
+    // if (
+    //   properties.highway == "motorway" ||
+    //   properties.highway == "motorway_link"
+    // ) {
+    //   stroke("#FCC731");
+    // } else if (properties.highway == "residential") {
+    //   //30er zone
+    //   stroke("#001BA5");
+    // } else if (properties.highway == "secondary") {
+    //   stroke("#001036");
+    // } else if (properties.highway == "tertiary") {
+    //   stroke("#00B770");
+    // } else if (properties.highway == "primary") {
+    //   stroke("#E12229");
+    // } else {
+    //   strokeWeight(0.1);
+    //   // // noStroke();
+    //   stroke("#4E5CA0");
+    // }
 
     noFill();
     // fill('rgba(255, 213, 0, 0.1)');
